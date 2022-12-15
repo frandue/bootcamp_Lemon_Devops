@@ -1,7 +1,7 @@
 # Ejercicios Linux
 
 ## Ejercicio 1:
-Creo directorio foo y detro de este los directorio dummy y empty
+Creo directorio foo y dentro de este los directorio dummy y empty
 ```bash
 	mkdir -p foo/dummy foo/empty
 ```
@@ -15,8 +15,8 @@ Creo los archivos en el directorio dummy y añado el texto en el archivo file1.t
 ```
 ___
 ___
-## Ejercicio 2
-Primer tengo que esta el el directorio de los archivos.
+## Ejercicio 2:
+Primero tengo que estar en el directorio de los archivos.
 
 Vuelco el contenido del archivo file1.txt en el archivo file2.txt
  ```bash
@@ -27,7 +27,7 @@ Muevo el archivo file2.txt al directorio empty
 	mv file2.txt ../empty/
 ```
 
-## Ejercicio 3
+## Ejercicio 3:
 
 El ejercicio se ejecuta de la siguiente forma:
 
@@ -37,9 +37,9 @@ El ejercicio se ejecuta de la siguiente forma:
 # Con argumento, ejemplo:
 	bash ejer_3.sh 'Frase a introducir'
 ```
-Estructura del scrip:
+Estructura del script:
 
-1. Se crea un condicional, si no se añade argumentos el texto de los archivos sera "Que me gusta la bash",en caso de dar argumentos esos seran los que aparezcan en los archivos.
+1. Se crea un condicional, si no se añade argumentos el texto de los archivos será "Que me gusta la bash",en caso de dar argumentos esos serán los que aparezcan en los archivos.
 ```bash
 	if [ "$#" == "0" ]
 	then       	
@@ -48,7 +48,7 @@ Estructura del scrip:
 		texto1="$*"
 	fi
 ```
-2. El resto sera lo mismo que los ejercicos 1 y 2.
+2. El resto será lo mismo que los ejercicios 1 y 2.
 ```bash
 	mkdir -p foo/dummy/ foo/empty
 	cd foo/dummy/
@@ -59,19 +59,19 @@ Estructura del scrip:
 ___
 ___
 ### Ejercicio 4
-Si se ejecuta el script sin palabra aparecera la siguiente frase:
+Si se ejecuta el script sin palabra aparecerá la siguiente frase:
 ```bash
 # Script sin palabra, ejemplo:
 	bash ejer_4.sh 
 	"No se ha indicado una palabra. Argumento incorrecto"
 ```
-Si se ejecuta el script con mas de una palabra aparecera la siguiente frase:
+Si se ejecuta el script con más de una palabra aparecerá la siguiente frase:
 ```bash
-# Script con mas de una palabra, ejemplo:
+# Script con más de una palabra, ejemplo:
 	bash ejer_4.sh hola adios 
 	"Se han indicado $# palabras. Argumentos incorrectos"	
 ```
-El script se ejecuta poniendo una palabra que se va a buscar en el archivo creado con el contenido de una web.
+El script se ejecuta poniendo una palabra que se va a buscar en el archivo creado con el contenido de una página web.
 ```bash
 # Con una palabra, ejemplo:
 	bash ejer_4.sh 'Burgos'
@@ -85,19 +85,19 @@ Si no se indica ninguna palabra:
  	echo "No se ha indicado una palabra. Argumento incorrecto"
  	exit
 ```
-Si se indica mas de una palabra
+Si se indica más de una palabra
 ```bash
 	elif [ $# -gt 1 ]
 	then
 	 echo "Se han indicado $# palabras. Argumentos incorrectos"	
 	 exit
  ```
-Estructura del scrip:
+Estructura del script:
 1. Almaceno la palabra introducida al ejecutar el script
 ```bash
 busqueda=$*
 ```
-2. Creo pagina.txt con el contenido de una pagina web
+2. Creo pagina.txt con el contenido de una página web
 ```bash
 curl -o pagina.txt https://www.diariodeburgos.es/
 ```
@@ -105,20 +105,20 @@ curl -o pagina.txt https://www.diariodeburgos.es/
 ```bash
 	num=`grep -i $busqueda pagina.txt | wc -l`
 ```
-4. Almaceno el número de la primera linea donde aparece la palabra
+4. Almaceno el número de la primera línea donde aparece la palabra
 ```bash
 grep -n -i $busqueda pagina.txt >lineas.txt
 	num_lin=`head -c 2 lineas.txt`
 ```
-5. Condicional creado para elegir la frase que se genera, si la palabra no aparece, si aparece solo una vez o si aparece mas de una.
+5. Condicional creado para elegir la frase que se genera, si la palabra no aparece, si aparece sólo una vez o si aparece más de una.
 ```bash
 	if [ 0 -eq $num ]
 	then
 	 echo "No se ha encontrado la palabra " "$busqueda"
 	elif [ 1 -eq $num]
 	 then	
-	 echo "La palabra ""$busqueda" "aparece solo $num" "vez" 
-	 echo "Aparece unicamente en la línea" "$num_lin"
+	 echo "La palabra ""$busqueda" "aparece sólo $num" "vez" 
+	 echo "Aparece únicamente en la línea" "$num_lin"
 	else    	
 	 echo "La palabra ""$busqueda" "aparece $num" "veces"
 	 echo "Aparece por primera vez en la línea" "$num_lin"
@@ -128,7 +128,7 @@ grep -n -i $busqueda pagina.txt >lineas.txt
 ___
 ___
 ### Ejercicio 5
-El script se ejecuta poniendo primero una URL de la pagina web y de segundo la palabra a buscar en la web.
+El script se ejecuta poniendo primero una URL de la página web y de segundo la palabra a buscar en la web.
 ```bash
 # Con URL y palabra a buscar
 	bash ejer_5.sh 'URL de la web' 'Palabra a buscar' 
@@ -137,7 +137,7 @@ El script se ejecuta poniendo primero una URL de la pagina web y de segundo la p
 	bash ejer_5.sh 
 	"No se ha indicado una URL y una palabra. Argumento incorrecto"
 
-# Cuando no se añaden mas de dos variables
+# Cuando no se añaden más de dos variables
 	bash ejer_5.sh 
  	"Se han indicado $# argumentos. Argumentos incorrectos"	
 
@@ -153,12 +153,12 @@ Explicación de script:
 #Almaceno la palabra a buscar
 	palabra=$2
 ```
-2. Creo un archivo con la pagina web
+2. Creo un archivo con la página web
 ```bash
-#Solo se crea pagina.txt si la primera variable es una URL
+#Sólo se crea pagina.txt si la primera variable es una URL
 	curl -o pagina.txt $URL 
 ```
-3. Verifico que el primer argumentos es una URL valida:
+3. Verifico que el primer argumentos es una URL válida:
 ```bash
 #Compruebo que existe el archivo pagina.txt
 	if [[ -e pagina.txt ]]
@@ -171,9 +171,9 @@ Explicación de script:
 ```
 4. Si la primera variable es una URL
 ```bash
-#contabilizar el numero de pabras que esta repetidas
+#contabilizar el número de palabras que esta repetidas
 	num=`grep -i $palabra pagina.txt | wc -l`
-#Almaceno el numero de la primera linea donde aparece
+#Almaceno el número de la primera línea donde aparece
 	grep -n -i $palabra pagina.txt >lineas.txt
 	num_lin=`head -c 2 lineas.txt`   
 ```
@@ -182,7 +182,7 @@ Explicación de script:
 #Elimino los archivos creados para que no interfiera en otras
 	rm pagina.txt lineas.txt
 ```
-6. Condicional para elegir la frase en funcion del numero de veces que se repite la palabra a buscar.
+6. Condicional para elegir la frase en función del número de veces que se repite la palabra a buscar.
 ```bash
 #Condicional
   if [ $num == 0 ]
@@ -190,8 +190,8 @@ Explicación de script:
     echo "No se ha encontrado la palabra " "$palabra"
   elif [ $num == 1 ]
   then	
-   echo "La palabra ""$palabra" "aparece solo" "$num" "vez" 
-   echo "Aparece unicamente en la línea" "$num_lin"
+   echo "La palabra ""$palabra" "aparece sólo" "$num" "vez" 
+   echo "Aparece únicamente en la línea" "$num_lin"
   else    	
    echo "La palabra ""$palabra" "aparece" "$num" "veces"
    echo "Aparece por primera vez en la línea" "$num_lin"
