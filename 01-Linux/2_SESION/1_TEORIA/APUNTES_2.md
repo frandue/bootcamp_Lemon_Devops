@@ -47,6 +47,10 @@
          1. La salida del comando 1 es la entrada del comando 2 y asi sucesivamente
       7. 
 5. Gestión de permisos
-   1. Usuario-Grupo-Otro
-   2. Lectura-Escritura-Ejecucion
-   3. 2:13:31
+   1. Usuario(u)-Grupo(g)-Otro(o)
+   2. Lectura(r)-Escritura(w)-Ejecucion(x)
+   3. ls -l -> Para listar los permisos
+   4. chmod  +r nombre.txt -> añado a todos el permiso de lectura. Con el menos delante lo quitaria e permiso
+      1. chmod (target) +-(permiso) -> el target o targets y + para añadir - para quitar 
+      2. 000(---)1 001(--x)2 010(-w-)3 011(-wx)4 100(r--)5 101(r-x)5 110(rw-)6 111(rwx)7
+      3. ejp chmod 644 file.txt -> rw--wx-wx
