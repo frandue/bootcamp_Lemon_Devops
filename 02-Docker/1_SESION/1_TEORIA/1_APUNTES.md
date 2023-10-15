@@ -24,8 +24,9 @@
        3. docker build
        4. docker run -> un contenedor
        5. docker ps -> Lista de los contenedores ejecutados
+          1. docker ps -a -> Muestra todos los contenedores
        6. doker attach -> Te permite engancharte a un contenedor
        7. docker cp -> Te permite copiar archivos al contenedor y viceverda  
        8. docker kill -> Para poder matar unos o mas contenedores corriendo
-       9. docker start/stop   -> Para arrancar o parar el contenedor
+       9.  docker start/stop   -> Para arrancar o parar el contenedor
        10. docker rm  -> Para eliminar uno o mas contenedores 
