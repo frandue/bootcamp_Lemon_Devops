@@ -12,4 +12,9 @@
   2. Ejercicio 2:
      1. Elimino el contenedor
         1. docker rm -f galleryapp
+     2. Compruebo que el volumen sigue existinedo
+        1. docker volume ls
+     3. Acceder al contenido del volumen tiene que estar contenido en un volumen
   3.  Ejercicio 3:
+      1.  docker run -d -p 9000:8080 --name galleryapp --mount type=bind,source=$(pwd)/images,target=/usr/src/app/images yazcunaga/galleryapp
+   
